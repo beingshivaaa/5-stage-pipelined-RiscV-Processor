@@ -45,24 +45,24 @@ initial begin
 //    mem[4] = 32'h00100213;   // addi x4,x0,1
   
    //(7) COnsecutive dependencies  
-    mem[0] = 32'h00100093;   // addi x1,x0,1
-    mem[1] = 32'h00200113;   // addi x2,x0,2
-    mem[2] = 32'h002081B3;   // add  x3,x1,x2
-    mem[3] = 32'h00218233;   // add  x4,x3,x2
-    mem[4] = 32'h003202B3;   // add  x5,x4,x3
+//    mem[0] = 32'h00100093;   // addi x1,x0,1
+//    mem[1] = 32'h00200113;   // addi x2,x0,2
+//    mem[2] = 32'h002081B3;   // add  x3,x1,x2
+//    mem[3] = 32'h00218233;   // add  x4,x3,x2
+//    mem[4] = 32'h003202B3;   // add  x5,x4,x3
     
 
-    for(i=5;i<64;i=i+1)
-        mem[i] = 32'h00000013;   // NOP
+//    for(i=5;i<64;i=i+1)
+//        mem[i] = 32'h00000013;   // NOP
 end
 
-//initial begin
-//    
-//    for(i=0;i<64;i=i+1)
-//        mem[i] = 32'h00000013;   // addi x0,x0,0 (NOP)
-//        
-//    $readmemh("program.hex",mem);
-//end
+initial begin
+    
+    for(i=0;i<64;i=i+1)
+        mem[i] = 32'h00000013;   // addi x0,x0,0 (NOP)
+        
+    $readmemh("program.hex",mem);
+end
 
 //Reads the instruction corresponding to given address
 always@(*) begin
